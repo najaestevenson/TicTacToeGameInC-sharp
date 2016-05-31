@@ -19,8 +19,10 @@
             data: JSON.stringify(params),
            // data: {'id':game_num,'player':player_marker,'move':player_move},
             success: function (result) {
-                console.log(result);
-                
+                if (result == "X" || result == "O") {
+                    alert("You Win! Good Job!")
+                }
+               
             }
         });
     });

@@ -41,9 +41,7 @@ namespace TicTacToeGame1.Controllers
         }
         public List<string> GetStateFromDB(int id)
         {
-           
-
-            List<string> allMoves = new List<string>();
+           List<string> allMoves = new List<string>();
             string connString = System.Configuration.ConfigurationManager.AppSettings["connString"];
             using (var conn = new SQLiteConnection(connString))
             {
