@@ -1,0 +1,56 @@
+﻿<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            @{
+                ViewBag.Title = "Tic Tac Toe Game";
+            }
+            <script type="text/javascript" src="~/Scripts/jquery-2.2.3.js"></script>
+            <script type="text/javascript" src="/Scripts/TicTacToe.js"></script>
+            <div>
+                <span style="float:right">
+                    @{
+                        int id = ViewBag.id;
+                    }
+                </span>
+            </div>
+            <div class="jumbotron">
+                <h1>Welcome to TictacToe!</h1>
+                <p>Let's Get ready to Rumble!!!</p>
+
+                <hr />
+                <script>
+        var gameId_player;
+        $(function () {
+            function identity(obj) {
+                return obj
+            }
+            var player = identity("@ViewBag.player");
+           
+            var id = identity(@ViewBag.id);
+            gameId_player = { num: id, marker: player };
+            var player_id = gameId_player["marker"];
+            
+            $(".moveButton").val(JSON.stringify(gameId_player));
+            var array = @Html.Raw(Json.Encode(@ViewBag.allMoves));
+            console.log(array);
+            for(var i = 1; i <= array.length; i++) {
+                $("#"+i).html(array[i-1]);
+            }
+
+        });
+                </script>
+                <button class="moveButton" type="button" id="1" position="move1"></button>
+                <button class="moveButton" type="button" id="2" position="move2"></button>
+                <button class="moveButton" type="button" id="3" position="move3"></button><br />
+                <button class="moveButton" type="button" id="4" position="move4"></button>
+                <button class="moveButton" type="button" id="5" position="move5"></button>
+                <button class="moveButton" type="button" id="6" position="move6"></button><br />
+                <button class="moveButton" type="button" id="7" position="move7"></button>
+                <button class="moveButton" type="button" id="8" position="move8"></button>
+                <button class="moveButton" type="button" id="9" position="move9"></button><br />
+
+
+            </div>
+        </div>
+    </section>
+   </div>
